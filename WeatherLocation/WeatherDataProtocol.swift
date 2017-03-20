@@ -10,7 +10,8 @@ import Foundation
 protocol WeatherDataProtocol {
     
     
-    var vehiclesDict : [Int : Weather] { get set }
+    //var weatherDict : [String : Weather] { get set }
+    var weatherArray : [Weather] { get set }
     
     
     

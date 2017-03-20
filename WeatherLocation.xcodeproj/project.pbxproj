@@ -125,9 +125,16 @@
 			isa = PBXGroup;
 			children = (
 				039792AD1E7C23D900950B1B /* WeatherViewController.swift */,
-				0307DA761E7EC1B800CF98FB /* DateExtension.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		032A8F2A1E8012A600A18164 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0307DA761E7EC1B800CF98FB /* DateExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		039792731E7C234F00950B1B = {
@@ -153,6 +160,7 @@
 		0397927E1E7C235000950B1B /* WeatherLocation */ = {
 			isa = PBXGroup;
 			children = (
+				032A8F2A1E8012A600A18164 /* Extensions */,
 				031BFE3B1E7C474200FE57DA /* Controllers */,
 				031BFE3A1E7C473700FE57DA /* Model */,
 				031BFE391E7C472D00FE57DA /* JsonFiles */,

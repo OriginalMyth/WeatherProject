@@ -14,6 +14,7 @@ struct JsonDocTags {
     static let PRESSURE_TAG = "pressure"
     static let TEMP_TAG = "temp"
     static let DAY_TAG = "day"
+    static let NIGHT_TAG = "night"
     static let MIN_TAG = "min"
     static let MAX_TAG = "max"
     

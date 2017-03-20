@@ -6,41 +6,54 @@
 //
 
 import Foundation
-
+import UIKit
 
 class Weather {
     
     
     var tempAvg : Int?
     
-    var tempDay : Int?
-    var tempMin : Int?
-    var tempMax : Int?
-    var tempNight : Int?
-    var tempEve : Int?
-    var tempMorn : Int?
+    var tempDay : Double?
+    var tempMin : Double?
+    var tempMax : Double?
+    var tempNight : Double?
+    var tempEve : Double?
+    var tempMorn : Double?
     
-    var pressure : Int?
+    var pressure : Double?
     var humidity : Int?
     
     var main : String?
     var mainDescription : String?
     var iconId : String?
     
-    var speed : Int?
+    var speed : Double?
     var deg : Int?
-    var clouds : Int?
-    var rain : Int?
+    var clouds : Double?
+    var rain : Double?
+    
+
+    //var iconImage : UIImage?
     
     
+     var iconImage: UIImage? {
+        get {
+            
+            if self.iconImage != nil {
+                return self.iconImage
+            } else {
+                //call method
+                return nil
+            }
+     
+        }
+        
+        set {
+            self.iconImage = newValue
+        }
+    }
     
-//    var vehicleId : Int = -1
-//    var lat : Double?
-//    var lng : Double?
-//    var speed : Double?
-//    var status : String?
-//    var groups = [Int] ()
-    
+
     
     func addValue<T>(_ tagName: String, withValue value: T) {  //for class
     //mutating func addValue<T>(_ tagName: String, withValue value: T) {
@@ -48,112 +61,168 @@ class Weather {
         switch tagName {
             
             
-                    case "humidity":
+        case JsonDocTags.HUMIDITY_TAG:
             
             
-                        if value is Int {
+            if value is Int {
+                
+                humidity = (value as? Int)!
+                
+                print("**** in weather class *** humidity is \(humidity)")
+            }
             
-                            humidity = (value as? Int)!
-                            
-                            print("**** in weather class *** humidity is \(humidity)")
-                        }
+            
+        case JsonDocTags.PRESSURE_TAG:
+            
+            
+            if value is Double {
+                
+                pressure = (value as? Double)!
+                
+                print("**** in weather class *** pressure is \(pressure)")
+            }
+            
+            
+        case JsonDocTags.SPEED_TAG:
+            
+            if value is Double {
+                
+                speed = (value as? Double)!
+                
+                print("**** in weather class *** speed is \(speed)")
+            }
+            
+            
+        case JsonDocTags.DEG_TAG:
+            
+            if value is Int {
+                
+                deg = (value as? Int)!
+                
+                print("**** in weather class *** deg is \(deg)")
+            }
+            
+            
+        case JsonDocTags.CLOUDS_TAG:
+            
+            if value is Double {
+                
+                clouds = (value as? Double)!
+                
+                print("**** in weather class *** clouds is \(clouds)")
+            }
+            
+            
+        case JsonDocTags.RAIN_TAG:
+            
+            if value is Double {
+                
+                rain = (value as? Double)!
+                
+                print("**** in weather class *** rain is \(rain)")
+            }
+
 
             
             
+        case JsonDocTags.DAY_TAG:
+            
+            if value is Double {
+                
+                let x = (value as? Double)!
+                
+                tempDay = Double(round(1000*x)/1000)
+                
+                print("**** in weather class *** tempDay is \(tempDay)")
+            }
             
             
-//        case JsonDocTags.VEHICLE_ID_TAG:
-//            
-//            
-//            if value is Int {
-//                
-//                vehicleId = (value as? Int)!
-//            }
-//            
-//            
-//            
-//            
-//        case JsonDocTags.LAT_TAG:
-//            
-//            
-//            if value is String {
-//                
-//                let holdingString: String? =  (value as! String)
-//                
-//                guard let myString = holdingString, !myString.isEmpty else {
-//                    print("String is nil or empty.")
-//                    return
-//                }
-//                
-//                lat = Double(holdingString!)
-//                
-//            }
-//            
-//            
-//        case JsonDocTags.LONG_TAG:
-//            
-//            
-//            if value is String {
-//                
-//                let holdingString: String? =  (value as! String)
-//                
-//                guard let myString = holdingString, !myString.isEmpty else {
-//                    print("String is nil or empty.")
-//                    return
-//                }
-//                
-//                lng = Double(holdingString!)
-//                
-//                
-//            }
-//            
-//        case JsonDocTags.SPEED_TAG:
-//            
-//            
-//            if value is String {
-//                
-//                let holdingString: String? =  (value as! String)
-//                
-//                guard let myString = holdingString, !myString.isEmpty else {
-//                    print("String is nil or empty.")
-//                    return
-//                }
-//                
-//                speed = Double(holdingString!)
-//                
-//            }
-//            
-//            
-//        case JsonDocTags.VEHICLE_GROUP_TAG:
-//            
-//            if value is String {
-//                
-//                let holdingString: String? =  (value as! String)
-//                
-//                guard let myString = holdingString, !myString.isEmpty else {
-//                    print("String is nil or empty.")
-//                    return
-//                }
-//                
-//                addStringToGroupsArray(value: holdingString!)
-//                
-//            }
-//            
-//            
-//        case JsonDocTags.STATUS_TAG:
-//            
-//            if value is String {
-//                
-//                let holdingString: String? =  (value as! String)
-//                
-//                guard let myString = holdingString, !myString.isEmpty else {
-//                    print("String is nil or empty.")
-//                    return
-//                }
-//                
-//                status = holdingString
-//                
-//            }
+        case JsonDocTags.NIGHT_TAG:
+            
+            if value is Double {
+                
+                tempNight = (value as? Double)!
+                
+                print("**** in weather class *** tempNight is \(tempNight)")
+            }
+            
+            
+            
+        case JsonDocTags.MIN_TAG:
+            
+            if value is Double {
+                
+                tempMin = (value as? Double)!
+                
+                print("**** in weather class *** tempMin is \(tempMin)")
+            }
+
+            
+        case JsonDocTags.MAX_TAG:
+            
+            if value is Double {
+                
+                tempMax = (value as? Double)!
+                
+                print("**** in weather class *** tempMax is \(tempMax)")
+            }
+
+            
+        case JsonDocTags.EVE_TAG:
+            
+            if value is Double {
+                
+                tempEve = (value as? Double)!
+                
+                print("**** in weather class *** tempEve is \(tempEve)")
+            }
+            
+
+            
+            
+        case JsonDocTags.MORN_TAG:
+            
+            if value is Double {
+                
+                tempMorn = (value as? Double)!
+                
+                print("**** in weather class *** tempMorn is \(tempMorn)")
+            }
+            
+            
+            
+            
+            
+        case JsonDocTags.MAIN_TAG:
+            
+            if value is String {
+                
+                main = (value as? String)!
+                
+                print("**** in weather class *** main is \(main)")
+            }
+            
+
+            
+        case JsonDocTags.DESCRIPTION_TAG:
+            
+            if value is String {
+                
+                mainDescription = (value as? String)!
+                
+                print("**** in weather class *** mainDescription is \(mainDescription)")
+            }
+            
+            
+        case JsonDocTags.ICON_TAG:
+            
+            if value is String {
+                
+                iconId = (value as? String)!
+                
+                print("**** in weather class *** iconId is \(iconId)")
+            }
+
             
         default:
             print("Unknown element \(tagName)")
@@ -161,48 +230,7 @@ class Weather {
         }
         
     }
-//
-//    
-//    /*
-//     Takes a String as a param and seperates it by commas into an array
-//     each element is then trimmed for whitespace before before added to the groups array
-//     
-//     Assumption: vales are added to groups (Does not replace original values)!
-//     
-//     */
-//    func addStringToGroupsArray(value: String) {
-//        
-//        
-//        let groupsStringArray = value.components(separatedBy: ",")
-//        
-//        for item in groupsStringArray {
-//            groups.append(Int(item.trimmingCharacters(in: .whitespaces))!)
-//        }
-//        
-//    }
-    
-    
-    
-    //maps class members to json
-    //func vehicleToJsonObject() -> String {
-//    func vehicleToJsonObject() -> [String : AnyObject] {
-//        
-//        var jsonObject = [String : AnyObject]()
-//        var jsonObject2 = [String : AnyObject]()
-//        
-//        jsonObject2[JsonDocTags.LAT_TAG] = lat as AnyObject?
-//        jsonObject2[JsonDocTags.LONG_TAG] = lng as AnyObject?
-//        jsonObject2[JsonDocTags.SPEED_TAG] = speed as AnyObject?
-//        jsonObject2[JsonDocTags.STATUS_TAG] = status as AnyObject?
-//        jsonObject2[JsonDocTags.VEHICLE_GROUP_TAG] = groups as AnyObject?
-//        
-//        jsonObject[String(vehicleId)] = jsonObject2 as AnyObject?
-//        
-//        return jsonObject
-//        
-//    }
-//    
-    
+
     
     
     

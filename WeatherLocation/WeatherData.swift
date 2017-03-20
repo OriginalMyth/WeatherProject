@@ -11,10 +11,12 @@ class WeatherData : WeatherDataProtocol {
     
     static let sharedInstance = WeatherData()
     
-    var vehiclesDict : [Int: Weather]
+    //var weatherDict : [String: Weather]
+    var weatherArray : [Weather]
     
     private init(){
-        vehiclesDict = [Int: Weather]()
+        //weatherDict = [String: Weather]()
+        weatherArray = [Weather]()
     }
     
     
