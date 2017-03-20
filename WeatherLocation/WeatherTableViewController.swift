@@ -17,6 +17,8 @@ class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
+        
         
     }
     
@@ -114,11 +116,9 @@ class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
         weather.fetchIconImage(imageID: weather.iconId!) { (image) -> Void in
             
             print("in cell image")
-            
-            cell.imageView?.image = image
-            
+
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                cell.imageView?.image = image
             }
             
         }
