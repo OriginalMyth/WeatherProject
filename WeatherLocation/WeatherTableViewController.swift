@@ -105,8 +105,7 @@ class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
         let weather = self.weatherDataHandler.weatherArray[indexPath.row]
          print("in cell main is... \(weather.mainDescription)")
         cell.textLabel?.text = weather.mainDescription
-        
-        //cell.detailTextLabel?.text = "\(weather.tempDay)"
+
         
         cell.detailTextLabel?.text = String(format:"%.1f", weather.tempDay!)
         

@@ -35,45 +35,6 @@ class Weather {
 
     var iconImage : UIImage?
     
-    
-//    fetchProfileImage() { (imageFile, name, error) in
-//    if error == nil {
-//    // put into UIImage with imageFile/name
-//    }
-//    
-//    
-//    let myStringFile = imageFile
-//    
-//    
-//    print(myStringFile)
-//    
-//    
-//    
-//    }
-//    
-//    
-//}
-
-
-
-
-//    One way that a closure can escape is by being stored in a variable that is defined outside the function. As an example, many functions that start an asynchronous operation take a closure argument as a completion handler. The function returns after it starts the operation, but the closure isn’t called until the operation is completed—the closure needs to escape, to be called later. For example:
-
-
-//func closureReturn(isTest: Bool, withCompletionHandler:(_ result:Type) -> Void) {
-//func closureReturn(isTest: Bool, withCompletionHandler: @escaping (String) -> Void) {
-//    
-//    
-//    if isTest {
-//        withCompletionHandler("Yes")
-//    } else {
-//        withCompletionHandler("No")
-//    }
-//    
-//    
-//}
-
-
 
     func fetchIconImage(imageID: String, imageCompletionHandler: @escaping (UIImage) -> Void) {
     
@@ -104,6 +65,9 @@ class Weather {
 
                 
             }
+        
+        
+        // MARK: - TODO - get individual image
         
         //http://openweathermap.org/img/w/10d.png
         
