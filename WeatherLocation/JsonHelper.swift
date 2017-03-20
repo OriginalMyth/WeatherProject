@@ -14,8 +14,7 @@ class JsonHelper {
     
     
 
-//func parseJson(jsonString: String, weatherData : WeatherDataProtocol?) throws {
-  func parseJson(jsonString: String) throws {
+    func parseJson(jsonString: String, weatherData : WeatherDataProtocol?) throws {
     
     let jsonData = jsonString.data(using: String.Encoding.utf8)
     
@@ -24,17 +23,22 @@ class JsonHelper {
         
         let jsonDoc : Any = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
         
-
+        if var weatherData = weatherData as WeatherDataProtocol! {
         
         
     if let weatherArray = (jsonDoc as AnyObject).object(forKey:"list") as? NSArray {
         
+        
+        
+
+        
          for i in 0 ..< weatherArray.count {
+            
             
             
             if let weatherObject = weatherArray.object(at: i) as? AnyObject {
                 
-                //print(weatherObject)
+                
                 let weather = Weather()
                 
                 
@@ -89,7 +93,7 @@ class JsonHelper {
                 
               //  weatherData.weatherDict[] = weather
                 
-                
+                weatherData.weatherArray.append(weather)
                 
                 
 
@@ -100,10 +104,10 @@ class JsonHelper {
         }
         
         
-            
+                          }
         
         
-    }
+    }//if weatherData
 
 
 }
@@ -124,145 +128,4 @@ class JsonHelper {
 
 
 
-//if let weather = (jsonDoc as AnyObject).object(forKey:"list") as? NSDictionary {
-//    
-//    print("In weether")
-//    
-//    
-//    if let dictKey = weather.object(forKey: "humididty") as? Int {
-//        
-//        print("In humidity")
-//        
-//        
-//}
-
-
-
-
-
-//        if let weather = (jsonDoc as AnyObject).object(forKey:"list") as? NSArray {
-//            
-//            
-//            for i in 0 ..< weather.count {
-//                
-//                
-//                
-//                //let dictKey = dict.object(forKey: JsonDocTags.VEHICLE_ID_TAG) as? Int ?? -1
-//
-////                if let dictKey = weather.object(forKey: "weather") as? Int {
-////
-////                }
-////                
-////                (dict.object(forKey: JsonDocTags.VEHICLE_ID_TAG) as AnyObject))
-////
-////                
-////                
-////                if let dict = weather[i] as? NSDictionary {
-////
-////                }
-//                
-//                
-//            }
-
-            
-            
-//            for i in 0 ..< weather.count {
-//                
-//                
-//                print(i)
-//                
-//                
-//            }
-
-        
-        
-        
-        
-        
-        
-        
-        
-            
-//            for item in weather {
-//                
-//                  print(item)
-//            }
-        
-            
-   //     }
-        
-
-        
-        
-//        
-//    }
-//    
-//    
-//}
-
-
-    
-    
-//    let vehicles: NSArray = jsonDoc as! NSArray
-//    
-//    
-//    for i in 0..<vehicles.count {
-//    if let dict = vehicles[i] as? NSDictionary {
-//    
-//    
-//    
-//    let dictKey = dict.object(forKey: JsonDocTags.VEHICLE_ID_TAG) as? Int ?? -1
-//    
-//    if dictKey != -1 {
-//    
-//    if var vehiclesData = vehiclesData as VehiclesDataProtocol! {
-//    
-//    var vehicle : Vehicle
-//    
-//    let vehicleX = vehiclesData.vehiclesDict[dictKey]
-//    
-//    
-//    if vehicleX != nil {
-//    
-//    vehicle = vehicleX!
-//    } else {
-//    vehicle = Vehicle()
-//    addElementToVehicle(vehicle, elementName: JsonDocTags.VEHICLE_ID_TAG, elementValue: (dict.object(forKey: JsonDocTags.VEHICLE_ID_TAG) as AnyObject))
-//    
-//    
-//    }
-//    
-//    addElementToVehicle(vehicle, elementName: JsonDocTags.VEHICLE_GROUP_TAG, elementValue: (dict.object(forKey: JsonDocTags.VEHICLE_GROUP_TAG) as AnyObject))
-//    addElementToVehicle(vehicle, elementName: JsonDocTags.LAT_TAG, elementValue: (dict.object(forKey: JsonDocTags.LAT_TAG) as AnyObject))
-//    addElementToVehicle(vehicle, elementName: JsonDocTags.LONG_TAG, elementValue: (dict.object(forKey: JsonDocTags.LONG_TAG) as AnyObject))
-//    addElementToVehicle(vehicle, elementName: JsonDocTags.STATUS_TAG, elementValue: (dict.object(forKey: JsonDocTags.STATUS_TAG) as AnyObject))
-//    addElementToVehicle(vehicle, elementName: JsonDocTags.SPEED_TAG, elementValue: (dict.object(forKey: JsonDocTags.SPEED_TAG) as AnyObject))
-//    
-//    vehiclesData.vehiclesDict[vehicle.vehicleId] = vehicle
-//    
-//    
-//    }
-//    
-//    }
-//    
-//    
-//    }
-//    
-//    
-//    
-//    }
-//    
-//    
-//    
-//}
-//
-//
-//}
-//
-
-
-
-
-
-//}
 

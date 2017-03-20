@@ -11,11 +11,43 @@ import XCTest
 
 class WeatherLocationTests: XCTestCase {
     
+    
+        var weatherDataForecast : String?
+        var weatherData : String?
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+
+        
+        weatherData = retrieveJsonStringFromBundle(filePath: Bundle.main.path(forResource: "weather_data", ofType:"json"))
+        weatherDataForecast = retrieveJsonStringFromBundle(filePath: Bundle.main.path(forResource: "weather_data_forecast", ofType:"json"))
+        
+        XCTAssertNotNil(weatherDataForecast,"Parsed JSON was nil")
+        
     }
     
+    func testParser() {
+        
+        let jsonHelper = JsonHelper()
+        let weatherDataHandler = WeatherData.sharedInstance
+        
+
+        
+        do {
+
+            try jsonHelper.parseJson(jsonString: weatherDataForecast!, weatherData : weatherDataHandler)
+
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        
+     
+
+    }
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
@@ -31,6 +63,24 @@ class WeatherLocationTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    /*
+     Loads test data from local storage
+     */
+    func retrieveJsonStringFromBundle(filePath: String?) -> String {
+        
+        if let vehicleData =  try? Data(contentsOf: URL(fileURLWithPath: filePath!), options: Data.ReadingOptions.uncached) {
+            
+            return String(data: vehicleData, encoding: .utf8)!
+            
+        }else {
+            print("Invalid filename/path.")
+            return ""
+            
+        }
+        
+        
     }
     
 }

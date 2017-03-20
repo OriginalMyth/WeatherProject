@@ -33,30 +33,95 @@ class Weather {
     var rain : Double?
     
 
-    //var iconImage : UIImage?
+    var iconImage : UIImage?
     
     
-     var iconImage: UIImage? {
-        get {
-            
-            if self.iconImage != nil {
-                return self.iconImage
-            } else {
-                //call method
-                return nil
-            }
-     
-        }
+//    fetchProfileImage() { (imageFile, name, error) in
+//    if error == nil {
+//    // put into UIImage with imageFile/name
+//    }
+//    
+//    
+//    let myStringFile = imageFile
+//    
+//    
+//    print(myStringFile)
+//    
+//    
+//    
+//    }
+//    
+//    
+//}
+
+
+
+
+//    One way that a closure can escape is by being stored in a variable that is defined outside the function. As an example, many functions that start an asynchronous operation take a closure argument as a completion handler. The function returns after it starts the operation, but the closure isn’t called until the operation is completed—the closure needs to escape, to be called later. For example:
+
+
+//func closureReturn(isTest: Bool, withCompletionHandler:(_ result:Type) -> Void) {
+//func closureReturn(isTest: Bool, withCompletionHandler: @escaping (String) -> Void) {
+//    
+//    
+//    if isTest {
+//        withCompletionHandler("Yes")
+//    } else {
+//        withCompletionHandler("No")
+//    }
+//    
+//    
+//}
+
+
+
+    func fetchIconImage(imageID: String, imageCompletionHandler: @escaping (UIImage) -> Void) {
+    
+    if iconImage != nil {
         
-        set {
-            self.iconImage = newValue
-        }
+        imageCompletionHandler(iconImage!)
+        
+    } else {
+        
+        let weatherResultsClosure : HttpConnect.weatherDataFromURL = {
+            
+            if let imageData = $1 {
+                
+               // if let imageData = data {
+                    // Finally convert that Data into an image and do what you wish with it.
+                    let image = UIImage(data: imageData)
+                    // Do something with your image.
+                    self.iconImage = image
+                
+                  imageCompletionHandler(image!)
+                
+                
+                } else {
+                    print("Couldn't get image: Image is nil")
+                }
+
+                    
+
+                
+            }
+        
+        //http://openweathermap.org/img/w/10d.png
+        
+        let aConnect = HttpConnect()
+        aConnect.sendGetRequest(urlString: "http://openweathermap.org/img/w/10d.png", weatherResultsClosure)
+        
+        
+        
     }
     
+    
+}
+
+
+
 
     
     func addValue<T>(_ tagName: String, withValue value: T) {  //for class
-    //mutating func addValue<T>(_ tagName: String, withValue value: T) {
         
         switch tagName {
             
@@ -68,7 +133,6 @@ class Weather {
                 
                 humidity = (value as? Int)!
                 
-                print("**** in weather class *** humidity is \(humidity)")
             }
             
             
@@ -79,7 +143,6 @@ class Weather {
                 
                 pressure = (value as? Double)!
                 
-                print("**** in weather class *** pressure is \(pressure)")
             }
             
             
@@ -89,7 +152,6 @@ class Weather {
                 
                 speed = (value as? Double)!
                 
-                print("**** in weather class *** speed is \(speed)")
             }
             
             
@@ -99,7 +161,6 @@ class Weather {
                 
                 deg = (value as? Int)!
                 
-                print("**** in weather class *** deg is \(deg)")
             }
             
             
@@ -109,7 +170,6 @@ class Weather {
                 
                 clouds = (value as? Double)!
                 
-                print("**** in weather class *** clouds is \(clouds)")
             }
             
             
@@ -119,7 +179,6 @@ class Weather {
                 
                 rain = (value as? Double)!
                 
-                print("**** in weather class *** rain is \(rain)")
             }
 
 
@@ -129,11 +188,8 @@ class Weather {
             
             if value is Double {
                 
-                let x = (value as? Double)!
+                tempDay = (value as? Double)!
                 
-                tempDay = Double(round(1000*x)/1000)
-                
-                print("**** in weather class *** tempDay is \(tempDay)")
             }
             
             
@@ -143,7 +199,6 @@ class Weather {
                 
                 tempNight = (value as? Double)!
                 
-                print("**** in weather class *** tempNight is \(tempNight)")
             }
             
             
@@ -154,7 +209,6 @@ class Weather {
                 
                 tempMin = (value as? Double)!
                 
-                print("**** in weather class *** tempMin is \(tempMin)")
             }
 
             
@@ -164,7 +218,6 @@ class Weather {
                 
                 tempMax = (value as? Double)!
                 
-                print("**** in weather class *** tempMax is \(tempMax)")
             }
 
             
@@ -174,7 +227,6 @@ class Weather {
                 
                 tempEve = (value as? Double)!
                 
-                print("**** in weather class *** tempEve is \(tempEve)")
             }
             
 
@@ -186,7 +238,6 @@ class Weather {
                 
                 tempMorn = (value as? Double)!
                 
-                print("**** in weather class *** tempMorn is \(tempMorn)")
             }
             
             
@@ -199,7 +250,6 @@ class Weather {
                 
                 main = (value as? String)!
                 
-                print("**** in weather class *** main is \(main)")
             }
             
 
@@ -210,7 +260,6 @@ class Weather {
                 
                 mainDescription = (value as? String)!
                 
-                print("**** in weather class *** mainDescription is \(mainDescription)")
             }
             
             

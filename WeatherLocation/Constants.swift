@@ -2,7 +2,6 @@
 //  Constants.swift
 //  WeatherLocation
 //
-//  Created by TAE on 20/03/2017.
 //  Copyright © 2017 OriginalMyth. All rights reserved.
 //
 

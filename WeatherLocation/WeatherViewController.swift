@@ -9,9 +9,10 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-    var weatherDataForecast : String?
-    var weatherData : String = ""
+//    var weatherDataForecast : String?
+//    var weatherData : String = ""
     
+    let weatherDataHandler = WeatherData.sharedInstance
     let jsonHelper = JsonHelper()
 
     @IBOutlet weak var forecastButton: UIButton!
@@ -47,7 +48,7 @@ class WeatherViewController: UIViewController {
                 
                 do {
                     //try self.jsonHelper.parseJson(jsonString: self.vehiclesString, weatherData : self.vehiclesDataHandler)
-                    try self.jsonHelper.parseJson(jsonString: String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))!)
+                    //try self.jsonHelper.parseJson(jsonString: String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))!)
                     
                     
                 } catch let error {

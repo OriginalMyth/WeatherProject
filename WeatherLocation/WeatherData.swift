@@ -16,7 +16,7 @@ class WeatherData : WeatherDataProtocol {
     
     private init(){
         //weatherDict = [String: Weather]()
-        weatherArray = [Weather]()
+        weatherArray = Array <Weather>()
     }
     
     

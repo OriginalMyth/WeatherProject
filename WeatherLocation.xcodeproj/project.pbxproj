@@ -24,6 +24,7 @@
 		039792A01E7C235100950B1B /* WeatherLocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0397929F1E7C235100950B1B /* WeatherLocationUITests.swift */; };
 		039792AE1E7C23D900950B1B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039792AD1E7C23D900950B1B /* WeatherViewController.swift */; };
 		039792B01E7C2AEC00950B1B /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039792AF1E7C2AEC00950B1B /* JsonHelper.swift */; };
+		03DCC1361E802E05003CF9D9 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC1351E802E05003CF9D9 /* WeatherTableViewController.swift */; };
 		03DE12D11E7C767C00070F2F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE12D01E7C767C00070F2F /* Weather.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		039792A11E7C235100950B1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		039792AD1E7C23D900950B1B /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		039792AF1E7C2AEC00950B1B /* JsonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
+		03DCC1351E802E05003CF9D9 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 		03DE12D01E7C767C00070F2F /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				039792AD1E7C23D900950B1B /* WeatherViewController.swift */,
+				03DCC1351E802E05003CF9D9 /* WeatherTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				032A8F2F1E8027F700A18164 /* Constants.swift in Sources */,
 				039792B01E7C2AEC00950B1B /* JsonHelper.swift in Sources */,
 				039792801E7C235000950B1B /* AppDelegate.swift in Sources */,
+				03DCC1361E802E05003CF9D9 /* WeatherTableViewController.swift in Sources */,
 				0386CCA51E7EA93B00DA121E /* Location.swift in Sources */,
 				039792AE1E7C23D900950B1B /* WeatherViewController.swift in Sources */,
 				0307DA771E7EC1B800CF98FB /* DateExtension.swift in Sources */,
