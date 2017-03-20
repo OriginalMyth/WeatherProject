@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0307DA771E7EC1B800CF98FB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307DA761E7EC1B800CF98FB /* DateExtension.swift */; };
 		031BFE3D1E7C47A700FE57DA /* weather_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 031BFE3C1E7C47A700FE57DA /* weather_data.json */; };
 		031BFE3F1E7C47C100FE57DA /* weather_data_forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 031BFE3E1E7C47C100FE57DA /* weather_data_forecast.json */; };
 		032F06151E7C772000CC5A0C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032F06141E7C772000CC5A0C /* WeatherData.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0307DA761E7EC1B800CF98FB /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		031BFE3C1E7C47A700FE57DA /* weather_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather_data.json; sourceTree = "<group>"; };
 		031BFE3E1E7C47C100FE57DA /* weather_data_forecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather_data_forecast.json; sourceTree = "<group>"; };
 		032F06141E7C772000CC5A0C /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				039792AD1E7C23D900950B1B /* WeatherViewController.swift */,
+				0307DA761E7EC1B800CF98FB /* DateExtension.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				039792801E7C235000950B1B /* AppDelegate.swift in Sources */,
 				0386CCA51E7EA93B00DA121E /* Location.swift in Sources */,
 				039792AE1E7C23D900950B1B /* WeatherViewController.swift in Sources */,
+				0307DA771E7EC1B800CF98FB /* DateExtension.swift in Sources */,
 				0391AA5C1E7C7601004B122A /* JsonDocTags.swift in Sources */,
 				032F06151E7C772000CC5A0C /* WeatherData.swift in Sources */,
 				03DE12D11E7C767C00070F2F /* Weather.swift in Sources */,

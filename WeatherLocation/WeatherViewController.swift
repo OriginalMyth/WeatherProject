@@ -47,6 +47,10 @@ class WeatherViewController: UIViewController {
         } catch let error {
             print(error.localizedDescription)
         }
+        
+        
+        
+        getDay()
     
     }
 
@@ -85,6 +89,27 @@ class WeatherViewController: UIViewController {
             
         }
         
+        
+    }
+    
+    
+    func getDay() -> String {
+        
+        
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let day = calendar.component(.day, from: date)
+        
+        
+        
+        print("today is \(day)")
+        
+        
+        print("today extension is \(date.dayOfTheWeek())")
+        
+       // return day
+        return ""
         
     }
 

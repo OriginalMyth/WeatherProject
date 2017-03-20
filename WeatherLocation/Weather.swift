@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Weather {
+class Weather {
     
     
     var tempAvg : Int?
@@ -42,11 +42,26 @@ struct Weather {
 //    var groups = [Int] ()
     
     
-    
-//    func addValue<T>(_ tagName: String, withValue value: T) {
-//        
-//        switch tagName {
-//            
+    func addValue<T>(_ tagName: String, withValue value: T) {  //for class
+    //mutating func addValue<T>(_ tagName: String, withValue value: T) {
+        
+        switch tagName {
+            
+            
+                    case "humidity":
+            
+            
+                        if value is Int {
+            
+                            humidity = (value as? Int)!
+                            
+                            print("**** in weather class *** humidity is \(humidity)")
+                        }
+
+            
+            
+            
+            
 //        case JsonDocTags.VEHICLE_ID_TAG:
 //            
 //            
@@ -139,14 +154,14 @@ struct Weather {
 //                status = holdingString
 //                
 //            }
-//            
-//        default:
-//            print("Unknown element \(tagName)")
-//            
-//        }
-//        
-//    }
-//    
+            
+        default:
+            print("Unknown element \(tagName)")
+            
+        }
+        
+    }
+//
 //    
 //    /*
 //     Takes a String as a param and seperates it by commas into an array
