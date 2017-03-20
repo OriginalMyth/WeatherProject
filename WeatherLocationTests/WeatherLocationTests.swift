@@ -2,7 +2,6 @@
 //  WeatherLocationTests.swift
 //  WeatherLocationTests
 //
-//  Created by TAE on 17/03/2017.
 //  Copyright © 2017 OriginalMyth. All rights reserved.
 //
 

@@ -2,7 +2,6 @@
 //  DateExtension.swift
 //  WeatherLocation
 //
-//  Created by TAE on 19/03/2017.
 //  Copyright © 2017 OriginalMyth. All rights reserved.
 //
 
