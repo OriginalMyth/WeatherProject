@@ -48,10 +48,7 @@ class Weather {
             
             if let imageData = $1 {
                 
-               // if let imageData = data {
-                    // Finally convert that Data into an image and do what you wish with it.
                     let image = UIImage(data: imageData)
-                    // Do something with your image.
                     self.iconImage = image
                 
                   imageCompletionHandler(image!)
