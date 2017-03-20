@@ -9,11 +9,8 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-//    var weatherData : String?
     var weatherDataForecast : String?
-    
     var weatherData : String = ""
-//    var vehiclesGroupsString : String = ""
     
     let jsonHelper = JsonHelper()
 
@@ -35,21 +32,51 @@ class WeatherViewController: UIViewController {
         
         forecastButton.addSubview(disclosure)
         
-        weatherData = retrieveJsonStringFromBundle(filePath: Bundle.main.path(forResource: "weather_data", ofType:"json"))
-        weatherDataForecast = retrieveJsonStringFromBundle(filePath: Bundle.main.path(forResource: "weather_data_forecast", ofType:"json"))
-        
-        
-        do {
-            //try self.jsonHelper.parseJson(jsonString: self.vehiclesString, weatherData : self.vehiclesDataHandler)
-            try self.jsonHelper.parseJson(jsonString: self.weatherDataForecast!)
+//        weatherData = retrieveJsonStringFromBundle(filePath: Bundle.main.path(forResource: "weather_data", ofType:"json"))
+//        weatherDataForecast = retrieveJsonStringFromBundle(filePath: Bundle.main.path(forResource: "weather_data_forecast", ofType:"json"))
 
+        
+        let weatherResultsClosure : HttpConnect.weatherDataFromURL = {
             
-        } catch let error {
-            print(error.localizedDescription)
+            
+            if let data = $1 {
+                
+                
+                //let mString = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+                
+                
+                do {
+                    //try self.jsonHelper.parseJson(jsonString: self.vehiclesString, weatherData : self.vehiclesDataHandler)
+                    try self.jsonHelper.parseJson(jsonString: String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))!)
+                    
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+                
+                
+            }
+            
+            
         }
         
         
         
+        let aConnect = HttpConnect()
+        aConnect.sendGetRequest(urlString: Constants.FIVEDAYWEATHERURLSTRING, weatherResultsClosure)
+        
+        
+//        do {
+//            //try self.jsonHelper.parseJson(jsonString: self.vehiclesString, weatherData : self.vehiclesDataHandler)
+//            try self.jsonHelper.parseJson(jsonString: self.weatherDataForecast!)
+//
+//            
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+        
+        
+        // MARK: - TODO - show day of the week
         getDay()
     
     }
@@ -97,20 +124,20 @@ class WeatherViewController: UIViewController {
         
         
         let date = Date()
-        let calendar = Calendar.current
         
-        let day = calendar.component(.day, from: date)
-        
-        
-        
-        print("today is \(day)")
-        
+      //  let calendar = Calendar.current
+    //    let day = calendar.component(.day, from: date)
         
         print("today extension is \(date.dayOfTheWeek())")
-        
-       // return day
-        return ""
+    
+        return date.dayOfTheWeek()!
         
     }
+    
+    
+    
+    
+    
+    
 
 }

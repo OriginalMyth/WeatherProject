@@ -10,6 +10,8 @@
 		0307DA771E7EC1B800CF98FB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307DA761E7EC1B800CF98FB /* DateExtension.swift */; };
 		031BFE3D1E7C47A700FE57DA /* weather_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 031BFE3C1E7C47A700FE57DA /* weather_data.json */; };
 		031BFE3F1E7C47C100FE57DA /* weather_data_forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 031BFE3E1E7C47C100FE57DA /* weather_data_forecast.json */; };
+		032A8F2C1E80256A00A18164 /* HttpConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032A8F2B1E80256A00A18164 /* HttpConnect.swift */; };
+		032A8F2F1E8027F700A18164 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032A8F2E1E8027F700A18164 /* Constants.swift */; };
 		032F06151E7C772000CC5A0C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032F06141E7C772000CC5A0C /* WeatherData.swift */; };
 		032F06171E7C773B00CC5A0C /* WeatherDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032F06161E7C773B00CC5A0C /* WeatherDataProtocol.swift */; };
 		0386CCA51E7EA93B00DA121E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0386CCA41E7EA93B00DA121E /* Location.swift */; };
@@ -46,6 +48,8 @@
 		0307DA761E7EC1B800CF98FB /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		031BFE3C1E7C47A700FE57DA /* weather_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather_data.json; sourceTree = "<group>"; };
 		031BFE3E1E7C47C100FE57DA /* weather_data_forecast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather_data_forecast.json; sourceTree = "<group>"; };
+		032A8F2B1E80256A00A18164 /* HttpConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpConnect.swift; sourceTree = "<group>"; };
+		032A8F2E1E8027F700A18164 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		032F06141E7C772000CC5A0C /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		032F06161E7C773B00CC5A0C /* WeatherDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataProtocol.swift; sourceTree = "<group>"; };
 		0386CCA41E7EA93B00DA121E /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			children = (
 				039792AF1E7C2AEC00950B1B /* JsonHelper.swift */,
 				0391AA5B1E7C7601004B122A /* JsonDocTags.swift */,
+				032A8F2E1E8027F700A18164 /* Constants.swift */,
 			);
 			name = HelperFiles;
 			sourceTree = "<group>";
@@ -137,6 +142,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		032A8F2D1E80257200A18164 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				032A8F2B1E80256A00A18164 /* HttpConnect.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		039792731E7C234F00950B1B = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +173,7 @@
 		0397927E1E7C235000950B1B /* WeatherLocation */ = {
 			isa = PBXGroup;
 			children = (
+				032A8F2D1E80257200A18164 /* Services */,
 				032A8F2A1E8012A600A18164 /* Extensions */,
 				031BFE3B1E7C474200FE57DA /* Controllers */,
 				031BFE3A1E7C473700FE57DA /* Model */,
@@ -331,6 +345,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032A8F2C1E80256A00A18164 /* HttpConnect.swift in Sources */,
+				032A8F2F1E8027F700A18164 /* Constants.swift in Sources */,
 				039792B01E7C2AEC00950B1B /* JsonHelper.swift in Sources */,
 				039792801E7C235000950B1B /* AppDelegate.swift in Sources */,
 				0386CCA51E7EA93B00DA121E /* Location.swift in Sources */,
