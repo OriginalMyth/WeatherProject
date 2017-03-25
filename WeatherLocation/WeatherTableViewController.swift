@@ -10,6 +10,13 @@ import UIKit
 class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
 
     
+    
+    
+    @IBOutlet weak var UITitleNavItem: UINavigationItem!
+    
+    //var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
     let weatherDataHandler = WeatherData.sharedInstance
     let jsonHelper = JsonHelper()
     
@@ -18,6 +25,24 @@ class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        
+        
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        let horizontalConstraint = NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+        view.addConstraint(horizontalConstraint)
+        
+                let verticalConstraint = NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+        
+        view.addConstraint(verticalConstraint)
+        
+       // activityIndicator.isHidden = true
+        activityIndicator.hidesWhenStopped = true
+        //activityIndicator.color = .yellow
+        activityIndicator.color = .cyan
+        
         
         
     }
@@ -51,6 +76,8 @@ class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
+        
+        
         print(textField.text!)
         getWeatherForecast(placeName: textField.text!)
         
@@ -59,8 +86,18 @@ class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
         return textField.resignFirstResponder()
     }
     
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .default
+//    }
+    
     
     private func getWeatherForecast(placeName :String) {
+        
+       // activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        
+        UITitleNavItem.title = "Weather For \(placeName)"
+        weatherDataHandler.weatherArray.removeAll()
         
         let weatherResultsClosure : HttpConnect.weatherDataFromURL = {
             
@@ -73,6 +110,8 @@ class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                       // self.activityIndicator.isHidden = true
+                        self.activityIndicator.stopAnimating()
                     }
                     
                 } catch let error {
@@ -83,8 +122,12 @@ class WeatherTableViewController: UITableViewController, UITextFieldDelegate {
         }
 
         
+        let forecastString = Constants.BASE_FORCECAST_STRING + placeName + Constants.END_FORECAST_STRING
+        
         let aConnect = HttpConnect()
-        aConnect.sendGetRequest(urlString: Constants.FIVEDAYWEATHERURLSTRING, weatherResultsClosure)
+        //aConnect.sendGetRequest(urlString: Constants.FIVEDAYWEATHERURLSTRING, weatherResultsClosure)
+        aConnect.sendGetRequest(urlString: forecastString, weatherResultsClosure)
+        
         
         
         

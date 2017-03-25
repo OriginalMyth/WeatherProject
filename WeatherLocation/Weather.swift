@@ -68,8 +68,14 @@ class Weather {
         
         //http://openweathermap.org/img/w/10d.png
         
+        
+        let pngString = Constants.BASE_PNG_STRING + iconId! + Constants.END_PNG_STRING
+        
+        print(" pngString is... " + pngString)
+        
         let aConnect = HttpConnect()
-        aConnect.sendGetRequest(urlString: "http://openweathermap.org/img/w/10d.png", weatherResultsClosure)
+        //aConnect.sendGetRequest(urlString: "http://openweathermap.org/img/w/10d.png", weatherResultsClosure)
+        aConnect.sendGetRequest(urlString: pngString, weatherResultsClosure)
         
         
         

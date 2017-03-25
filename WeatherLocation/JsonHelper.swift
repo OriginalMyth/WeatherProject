@@ -35,8 +35,9 @@ class JsonHelper {
          for i in 0 ..< weatherArray.count {
             
             
-            
-            if let weatherObject = weatherArray.object(at: i) as? AnyObject {
+            //conditional assignment instead of conditional cast
+            //if let weatherObject = weatherArray.object(at: i) as? AnyObject {
+                if let weatherObject = weatherArray.object(at: i) as AnyObject? {
                 
                 
                 let weather = Weather()
@@ -55,7 +56,7 @@ class JsonHelper {
 //                    
 //                }
                 
-                if let dictObjectKey = weatherObject.object(forKey: JsonDocTags.TEMP_TAG) as? AnyObject {//Is an jsonObject
+                if let dictObjectKey = weatherObject.object(forKey: JsonDocTags.TEMP_TAG) as AnyObject? {//Is an jsonObject
                 
                     addElementToWeather(weather, elementName: JsonDocTags.DAY_TAG, elementValue: (dictObjectKey.object(forKey: JsonDocTags.DAY_TAG) as AnyObject))
                     addElementToWeather(weather, elementName: JsonDocTags.NIGHT_TAG, elementValue: (dictObjectKey.object(forKey: JsonDocTags.NIGHT_TAG) as AnyObject))
@@ -71,7 +72,7 @@ class JsonHelper {
                     if let innerWeatherArray = weatherObject.object(forKey: JsonDocTags.WEATHER_TAG) as? NSArray {//Is an jsonArray contains a JsonObject
                     
                     //Only gets the first **Priority** value
-                    if let innerWeatherObject = innerWeatherArray.object(at: 0) as? AnyObject {
+                    if let innerWeatherObject = innerWeatherArray.object(at: 0) as AnyObject? {
                
 
                         addElementToWeather(weather, elementName: JsonDocTags.MAIN_TAG, elementValue: (innerWeatherObject.object(forKey: JsonDocTags.MAIN_TAG) as AnyObject))
@@ -90,8 +91,6 @@ class JsonHelper {
                 addElementToWeather(weather, elementName: JsonDocTags.CLOUDS_TAG, elementValue: (weatherObject.object(forKey: JsonDocTags.CLOUDS_TAG) as AnyObject))
                 addElementToWeather(weather, elementName: JsonDocTags.RAIN_TAG, elementValue: (weatherObject.object(forKey: JsonDocTags.RAIN_TAG) as AnyObject))
 
-                
-              //  weatherData.weatherDict[] = weather
                 
                 weatherData.weatherArray.append(weather)
                 
